@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr" class="color_theme_target blue">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.45, maximum-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <title>Math'EVE - progamme d'entrainement</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Monoton&family=Pacifico&display=swap");
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <img src="logo.png" alt="Logo" class="logo" />
+      <h1 class="title">Math'EVE'matique</h1>
+    </header>
+    <div class="displaying_rules">
+      <div id="records">
+        <h2>Tableau des records</h2>
+        <p>Voici tes meilleurs scores :</p>
+        <div class="accordion">
+          <input type="radio" name="select" class="accordion-select" checked />
+          <div class="accordion-title"><span>Niveau : 1</span></div>
+          <div class="accordion-content" id="content_niveau1">
+            A toi de jouer !
+          </div>
+          <input type="radio" name="select" class="accordion-select" />
+          <div class="accordion-title"><span>Niveau : 2</span></div>
+          <div class="accordion-content" id="content_niveau2">
+            A toi de jouer !
+          </div>
+          <input type="radio" name="select" class="accordion-select" />
+          <div class="accordion-title"><span>Niveau : 3</span></div>
+          <div class="accordion-content" id="content_niveau3">
+            A toi de jouer !
+          </div>
+          <input type="radio" name="select" class="accordion-select" />
+          <div class="accordion-title"><span>Niveau : 4</span></div>
+          <div class="accordion-content" id="content_niveau4">
+            A toi de jouer !
+          </div>
+        </div>
+      </div>
+      <div id="center_operation_windows">
+        <h2>Additions</h2>
+        <select name="level" id="level_selector">
+          <option value="niveau1">Niveau 1</option>
+          <option value="niveau2">Niveau 2</option>
+          <option value="niveau3">Niveau 3</option>
+          <option value="niveau4">Niveau 4</option>
+        </select>
+        <form action="submit" id="operation">
+          <div id="operation_display">
+            <div id="operations_diplay_random"></div>
+            <input
+              type="number"
+              name="result"
+              id="user_result"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <button type="submit" id="validate_btn">Valider</button
+          ><button type="reset" id="restart_btn">Recommencer</button
+          ><button type="submit" id="start_btn">Commencer</button>
+        </form>
+        <div id="point_number"></div>
+      </div>
+      <div id="right">
+        <div class="date">
+          <p id="date">Loading...</p>
+          <p id="time"></p>
+        </div>
+        <div class="theme">
+          <div class="menu-btn">
+            <div class="menu-btn_plus"></div>
+          </div>
+          <ul class="nav-menu">
+            <li><a id="color_theme_links_blue" href="#">BLEU</a></li>
+            <li><a id="color_theme_links_green" href="#">VERT</a></li>
+            <li><a id="color_theme_links_pink" href="#">ROSE</a></li>
+            <li><a id="color_theme_links_yellow" href="#">JAUNE</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer id="footer"><script src="JavaScript/main.js"></script></footer>
+  </body>
+</html>

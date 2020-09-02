@@ -1,0 +1,460 @@
+$blue_base_gradient_color: #d7f5ff;
+$blue_middle_gradient_color: #53cbf1;
+$blue_final_color: #05abe0;
+
+$green_base_gradient_color: #f8ffe8;
+$green_middle_gradient_color: #d4f17c;
+$green_final_color: #b7df2d;
+
+$pink_base_gradient_color: #ffe5f2;
+$pink_middle_gradient_color: #ff5db1;
+$pink_final_color: #ef017c;
+
+$yellow_base_gradient_color: #fff5db;
+$yellow_middle_gradient_color: #ffd65e;
+$yellow_final_color: #febf04;
+
+.accordion {
+  box-sizing: border-box;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  width: 95%;
+  margin: auto;
+  margin-bottom: 5px;
+
+  &-select {
+    cursor: pointer;
+    margin: 0;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  &-title {
+    position: relative;
+
+    &:not(:nth-last-child(2))::after {
+      border: 1px solid transparent;
+      bottom: 0;
+      content: "";
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    span {
+      bottom: 0px;
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      white-space: nowrap;
+      width: 100%;
+    }
+  }
+
+  &-content {
+    box-sizing: border-box;
+    overflow: auto;
+    position: relative;
+    transition: margin 0.3s ease 0.1s;
+  }
+
+  .accordion-select:checked+.accordion-title+.accordion-content {
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+}
+
+/* Generated styles starts here */
+
+.accordion {
+  border-color: #dedede;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  flex-direction: column;
+  height: auto;
+
+  &-title,
+  &-select {
+    background-color: #000000;
+    color: #cacaca;
+    width: 100%;
+    height: 50px;
+    font-size: 15px;
+  }
+
+  &-select {
+    margin-bottom: -50px;
+    margin-right: -50px;
+  }
+
+  &-title:not(:nth-last-child(2))::after {
+    border-bottom-color: rgb(234, 234, 234);
+    border-right-color: transparent;
+  }
+
+  .accordion-select:hover+.accordion-title,
+  .accordion-select:checked+.accordion-title {
+    background-color: #acacac;
+    color: #000000;
+  }
+
+  &-title span {
+    transform: rotate(0deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+    padding-left: 33px;
+    padding-right: 33px;
+    line-height: 50px;
+  }
+
+  &-content {
+    background-color: #f7f7f7;
+    color: #7f8787;
+    height: 80px;
+    margin-bottom: -80px;
+    margin-right: 0;
+    padding: 30px;
+    width: 100%;
+  }
+}
+
+
+html {
+  color: #011921;
+  font-family: 'Pacifico', cursive;
+  user-select: none;
+  height: 100%;
+
+  background: linear-gradient(to bottom, $blue_base_gradient_color 0%, $blue_middle_gradient_color 40%, $blue_final_color 100%);
+
+  &.blue {
+    background: linear-gradient(to bottom, $blue_base_gradient_color 0%, $blue_middle_gradient_color 40%, $blue_final_color 100%);
+  }
+
+  &.green {
+    background: linear-gradient(to bottom, $green_base_gradient_color 0%, $green_middle_gradient_color 40%, $green_final_color 100%);
+  }
+
+  &.pink {
+    background: linear-gradient(to bottom, $pink_base_gradient_color 0%, $pink_middle_gradient_color 40%, $pink_final_color 100%);
+  }
+
+  &.yellow {
+    background: linear-gradient(to bottom, $yellow_base_gradient_color 0%, $yellow_middle_gradient_color 40%, $yellow_final_color 100%);
+  }
+}
+
+body {
+  height: 90%;
+
+  .title {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      height: 8px;
+      background-color: #011921;
+      border-radius: 5px;
+      width: 600px;
+      box-shadow: 5px 5px 5px rgba(82, 82, 82, 0.3);
+    }
+  }
+}
+
+.displaying_rules {
+  display: flex;
+  flex-direction: row;
+  height: 500px;
+
+  #records {
+    text-align: center;
+    width: 300px;
+    margin-left: 20px;
+    margin-top: 50px;
+
+    &_select {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  }
+
+  #center_operation_windows {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(182, 182, 182, 0.363);
+    border-radius: 40px;
+    border-style: ridge;
+    text-align: center;
+    margin: 50px 50px 0 50px;
+
+    h2 {
+      font-size: 40px;
+    }
+
+    #point_number {
+      font-size: 30px;
+      margin: 20px;
+    }
+
+    #operation {
+
+      display: flex;
+      flex-direction: column;
+      font-size: 50px;
+
+      #user_result {
+        margin: 0;
+      }
+
+      &_display {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #start_btn,
+      #validate_btn,
+      #restart_btn {
+        cursor: pointer;
+        width: 100px;
+        margin: auto;
+        border-radius: 5px;
+        background-color: $blue_middle_gradient_color;
+
+        &:hover {
+          background-color: $blue_final_color;
+        }
+
+        &.blue {
+          background-color: $blue_middle_gradient_color;
+
+          &:hover {
+            background-color: $blue_final_color;
+          }
+        }
+
+        &.green {
+          background-color: $green_middle_gradient_color;
+
+          &:hover {
+            background-color: $green_final_color;
+          }
+        }
+
+        &.pink {
+          background-color: $pink_middle_gradient_color;
+
+          &:hover {
+            background-color: $pink_final_color;
+          }
+        }
+
+        &.yellow {
+          background-color: $yellow_middle_gradient_color;
+
+          &:hover {
+            background-color: $yellow_final_color;
+          }
+        }
+      }
+
+      div {
+        margin: 5px;
+      }
+
+      input {
+        margin: 5px;
+      }
+    }
+  }
+}
+
+
+#right {
+  margin-top: 50px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+  right: 20px;
+
+  .date {
+    height: 120px;
+  }
+
+  .theme {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+
+    .menu-btn {
+      left: 0;
+      text-align: initial;
+      display: flex;
+      position: absolute;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: rgba(75,
+          75,
+          75,
+          0.377);
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: all .5s ease-in-out;
+
+      &.open .menu-btn_plus {
+        background: transparent;
+        box-shadow: none;
+        transform: rotate(90deg);
+
+        &::before {
+          transform: rotate(450deg);
+        }
+      }
+
+      &_plus {
+        position: absolute;
+        width: 20px;
+        height: 5px;
+        background: white;
+        border-radius: 5px;
+        transition: all .5s ease-in-out;
+        transform: rotate(90deg);
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 20px;
+          height: 5px;
+          background: white;
+          border-radius: 5px;
+          transition: all .5s ease-in-out;
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+  }
+
+}
+
+
+.header {
+  display: block;
+  height: 230px;
+}
+
+.logo {
+  position: relative;
+  opacity: 0.8;
+  top: 200px;
+  left: 4.5%;
+  height: 100px;
+  width: 100px;
+  animation-name: rotateL;
+  animation-duration: 5s;
+}
+
+@keyframes rotateL {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.title {
+  position: relative;
+  top: -100px;
+  height: 100%;
+  text-align: center;
+  padding: 40px;
+  font-size: 80px;
+  margin: auto;
+  text-shadow: 5px 5px 5px rgba($color: #525252, $alpha: 0.3);
+}
+
+
+.nav-menu {
+  position: relative;
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: 0.8s;
+  pointer-events: none;
+
+
+  li {
+    text-align: left;
+    opacity: 0;
+
+    a {
+      text-decoration: none;
+      color: black;
+      cursor: default;
+    }
+  }
+
+
+  &.closed li {
+    animation-name: slideout;
+    animation-duration: .7s;
+    opacity: 0;
+  }
+
+  @keyframes slideout {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+
+  &.open {
+
+    li {
+      display: block;
+      animation-duration: 1s;
+      animation-name: slidein;
+      opacity: 1;
+
+      a {
+        cursor: pointer;
+        pointer-events: initial;
+      }
+    }
+
+
+  }
+
+  @keyframes slidein {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+
+  }
+
+
+}
+
+
+#footer {
+  height: 50px;
+}
