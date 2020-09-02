@@ -119,7 +119,7 @@ html {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  height: 100%;
+  height: 100vh;
   background: -webkit-gradient(linear, left top, left bottom, from(#d7f5ff), color-stop(40%, #53cbf1), to(#05abe0));
   background: linear-gradient(to bottom, #d7f5ff 0%, #53cbf1 40%, #05abe0 100%);
 }
@@ -145,14 +145,61 @@ html.yellow {
 }
 
 body {
-  height: 90%;
+  height: 90vh;
 }
 
-body .title {
+body .header {
+  display: block;
+  height: 230px;
+}
+
+body .header .logo {
   position: relative;
+  opacity: 0.8;
+  top: 200px;
+  left: 4.5%;
+  height: 100px;
+  width: 100px;
+  -webkit-animation-name: rotateL;
+          animation-name: rotateL;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
 }
 
-body .title::before {
+@-webkit-keyframes rotateL {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateL {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+body .header .title {
+  position: relative;
+  top: -100px;
+  height: 100%;
+  text-align: center;
+  padding: 40px;
+  font-size: 80px;
+  margin: auto;
+  text-shadow: 5px 5px 5px rgba(82, 82, 82, 0.3);
+}
+
+body .header .title::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -164,7 +211,7 @@ body .title::before {
           box-shadow: 5px 5px 5px rgba(82, 82, 82, 0.3);
 }
 
-.displaying_rules {
+.main-block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -175,19 +222,19 @@ body .title::before {
   height: 500px;
 }
 
-.displaying_rules #records {
+.main-block #records {
   text-align: center;
   width: 300px;
   margin-left: 20px;
   margin-top: 50px;
 }
 
-.displaying_rules #records_select {
+.main-block #records_select {
   margin-bottom: 20px;
   width: 100%;
 }
 
-.displaying_rules #center_operation_windows {
+.main-block #center_operation_windows {
   width: 100%;
   height: 100%;
   background-color: rgba(182, 182, 182, 0.363);
@@ -197,16 +244,16 @@ body .title::before {
   margin: 50px 50px 0 50px;
 }
 
-.displaying_rules #center_operation_windows h2 {
+.main-block #center_operation_windows h2 {
   font-size: 40px;
 }
 
-.displaying_rules #center_operation_windows #point_number {
+.main-block #center_operation_windows #point_number {
   font-size: 30px;
   margin: 20px;
 }
 
-.displaying_rules #center_operation_windows #operation {
+.main-block #center_operation_windows #operation {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -217,11 +264,11 @@ body .title::before {
   font-size: 50px;
 }
 
-.displaying_rules #center_operation_windows #operation #user_result {
+.main-block #center_operation_windows #operation #user_result {
   margin: 0;
 }
 
-.displaying_rules #center_operation_windows #operation_display {
+.main-block #center_operation_windows #operation_display {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -234,9 +281,9 @@ body .title::before {
           justify-content: center;
 }
 
-.displaying_rules #center_operation_windows #operation #start_btn,
-.displaying_rules #center_operation_windows #operation #validate_btn,
-.displaying_rules #center_operation_windows #operation #restart_btn {
+.main-block #center_operation_windows #operation #start_btn,
+.main-block #center_operation_windows #operation #validate_btn,
+.main-block #center_operation_windows #operation #restart_btn {
   cursor: pointer;
   width: 100px;
   margin: auto;
@@ -244,65 +291,65 @@ body .title::before {
   background-color: #53cbf1;
 }
 
-.displaying_rules #center_operation_windows #operation #start_btn:hover,
-.displaying_rules #center_operation_windows #operation #validate_btn:hover,
-.displaying_rules #center_operation_windows #operation #restart_btn:hover {
+.main-block #center_operation_windows #operation #start_btn:hover,
+.main-block #center_operation_windows #operation #validate_btn:hover,
+.main-block #center_operation_windows #operation #restart_btn:hover {
   background-color: #05abe0;
 }
 
-.displaying_rules #center_operation_windows #operation #start_btn.blue,
-.displaying_rules #center_operation_windows #operation #validate_btn.blue,
-.displaying_rules #center_operation_windows #operation #restart_btn.blue {
+.main-block #center_operation_windows #operation #start_btn.blue,
+.main-block #center_operation_windows #operation #validate_btn.blue,
+.main-block #center_operation_windows #operation #restart_btn.blue {
   background-color: #53cbf1;
 }
 
-.displaying_rules #center_operation_windows #operation #start_btn.blue:hover,
-.displaying_rules #center_operation_windows #operation #validate_btn.blue:hover,
-.displaying_rules #center_operation_windows #operation #restart_btn.blue:hover {
+.main-block #center_operation_windows #operation #start_btn.blue:hover,
+.main-block #center_operation_windows #operation #validate_btn.blue:hover,
+.main-block #center_operation_windows #operation #restart_btn.blue:hover {
   background-color: #05abe0;
 }
 
-.displaying_rules #center_operation_windows #operation #start_btn.green,
-.displaying_rules #center_operation_windows #operation #validate_btn.green,
-.displaying_rules #center_operation_windows #operation #restart_btn.green {
+.main-block #center_operation_windows #operation #start_btn.green,
+.main-block #center_operation_windows #operation #validate_btn.green,
+.main-block #center_operation_windows #operation #restart_btn.green {
   background-color: #d4f17c;
 }
 
-.displaying_rules #center_operation_windows #operation #start_btn.green:hover,
-.displaying_rules #center_operation_windows #operation #validate_btn.green:hover,
-.displaying_rules #center_operation_windows #operation #restart_btn.green:hover {
+.main-block #center_operation_windows #operation #start_btn.green:hover,
+.main-block #center_operation_windows #operation #validate_btn.green:hover,
+.main-block #center_operation_windows #operation #restart_btn.green:hover {
   background-color: #b7df2d;
 }
 
-.displaying_rules #center_operation_windows #operation #start_btn.pink,
-.displaying_rules #center_operation_windows #operation #validate_btn.pink,
-.displaying_rules #center_operation_windows #operation #restart_btn.pink {
+.main-block #center_operation_windows #operation #start_btn.pink,
+.main-block #center_operation_windows #operation #validate_btn.pink,
+.main-block #center_operation_windows #operation #restart_btn.pink {
   background-color: #ff5db1;
 }
 
-.displaying_rules #center_operation_windows #operation #start_btn.pink:hover,
-.displaying_rules #center_operation_windows #operation #validate_btn.pink:hover,
-.displaying_rules #center_operation_windows #operation #restart_btn.pink:hover {
+.main-block #center_operation_windows #operation #start_btn.pink:hover,
+.main-block #center_operation_windows #operation #validate_btn.pink:hover,
+.main-block #center_operation_windows #operation #restart_btn.pink:hover {
   background-color: #ef017c;
 }
 
-.displaying_rules #center_operation_windows #operation #start_btn.yellow,
-.displaying_rules #center_operation_windows #operation #validate_btn.yellow,
-.displaying_rules #center_operation_windows #operation #restart_btn.yellow {
+.main-block #center_operation_windows #operation #start_btn.yellow,
+.main-block #center_operation_windows #operation #validate_btn.yellow,
+.main-block #center_operation_windows #operation #restart_btn.yellow {
   background-color: #ffd65e;
 }
 
-.displaying_rules #center_operation_windows #operation #start_btn.yellow:hover,
-.displaying_rules #center_operation_windows #operation #validate_btn.yellow:hover,
-.displaying_rules #center_operation_windows #operation #restart_btn.yellow:hover {
+.main-block #center_operation_windows #operation #start_btn.yellow:hover,
+.main-block #center_operation_windows #operation #validate_btn.yellow:hover,
+.main-block #center_operation_windows #operation #restart_btn.yellow:hover {
   background-color: #febf04;
 }
 
-.displaying_rules #center_operation_windows #operation div {
+.main-block #center_operation_windows #operation div {
   margin: 5px;
 }
 
-.displaying_rules #center_operation_windows #operation input {
+.main-block #center_operation_windows #operation input {
   margin: 5px;
 }
 
@@ -333,15 +380,29 @@ body .title::before {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  cursor: pointer;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+#right .theme.open .menu-btn_plus {
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+#right .theme.open .menu-btn_plus::before {
+  -webkit-transform: rotate(450deg);
+          transform: rotate(450deg);
 }
 
 #right .theme .menu-btn {
-  left: 0;
   text-align: initial;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: absolute;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -349,6 +410,8 @@ body .title::before {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 50%;
+  border-style: double;
+  border-color: rgba(75, 75, 75, 0.377);
   background-color: rgba(75, 75, 75, 0.377);
   width: 40px;
   height: 40px;
@@ -395,85 +458,33 @@ body .title::before {
           transform: rotate(90deg);
 }
 
-.header {
-  display: block;
-  height: 230px;
-}
-
-.logo {
-  position: relative;
-  opacity: 0.8;
-  top: 200px;
-  left: 4.5%;
-  height: 100px;
-  width: 100px;
-  -webkit-animation-name: rotateL;
-          animation-name: rotateL;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
-}
-
-@-webkit-keyframes rotateL {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes rotateL {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-.title {
-  position: relative;
-  top: -100px;
-  height: 100%;
-  text-align: center;
-  padding: 40px;
-  font-size: 80px;
-  margin: auto;
-  text-shadow: 5px 5px 5px rgba(82, 82, 82, 0.3);
-}
-
-.nav-menu {
-  position: relative;
+#right .theme .nav-menu {
+  padding: 0;
   list-style: none;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-transition: 0.8s;
   transition: 0.8s;
   pointer-events: none;
 }
 
-.nav-menu li {
-  text-align: left;
+#right .theme .nav-menu li {
+  text-align: center;
   opacity: 0;
+  padding: 4px;
 }
 
-.nav-menu li a {
+#right .theme .nav-menu li a {
   text-decoration: none;
-  color: black;
+  color: white;
+  padding: 0 5px 0 5px;
+  border-style: double;
+  border-color: rgba(75, 75, 75, 0.377);
+  border-radius: 20%;
+  background-color: rgba(75, 75, 75, 0.377);
   cursor: default;
 }
 
-.nav-menu.closed li {
+#right .theme .nav-menu.closed li {
   -webkit-animation-name: slideout;
           animation-name: slideout;
   -webkit-animation-duration: .7s;
@@ -499,7 +510,7 @@ body .title::before {
   }
 }
 
-.nav-menu.open li {
+#right .theme .nav-menu.open li {
   display: block;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
@@ -508,7 +519,7 @@ body .title::before {
   opacity: 1;
 }
 
-.nav-menu.open li a {
+#right .theme .nav-menu.open li a {
   cursor: pointer;
   pointer-events: initial;
 }

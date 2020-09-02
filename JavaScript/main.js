@@ -158,9 +158,9 @@ $(document).ready(function () {
     e.preventDefault();
     if (nb1 + nb2 + nb3 == $("#user_result").val()) {
       pointCount++;
-      $(".title").animate({ right: "+=20px", fontSize: "+=20px" }, 500);
+      $(".title").animate({ right: "+=20px" }, 500);
       $(".title").animate({ right: "-=40px" }, 500);
-      $(".title").animate({ right: "+=20px", fontSize: "-=20px" }, 500);
+      $(".title").animate({ right: "+=20px" }, 500);
       console.log(`Bien joué !!! - Nombre de points : ${pointCount}`);
       if (pointCount != 1) {
         $("#point_number").html(`Nombre de points  :  ${pointCount}`);

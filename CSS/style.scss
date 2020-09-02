@@ -125,7 +125,7 @@ html {
   color: #011921;
   font-family: 'Pacifico', cursive;
   user-select: none;
-  height: 100%;
+  height: 100vh;
 
   background: linear-gradient(to bottom, $blue_base_gradient_color 0%, $blue_middle_gradient_color 40%, $blue_final_color 100%);
 
@@ -147,25 +147,58 @@ html {
 }
 
 body {
-  height: 90%;
+  height: 90vh;
 
-  .title {
-    position: relative;
+  .header {
+    display: block;
+    height: 230px;
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      height: 8px;
-      background-color: #011921;
-      border-radius: 5px;
-      width: 600px;
-      box-shadow: 5px 5px 5px rgba(82, 82, 82, 0.3);
+    .logo {
+      position: relative;
+      opacity: 0.8;
+      top: 200px;
+      left: 4.5%;
+      height: 100px;
+      width: 100px;
+      animation-name: rotateL;
+      animation-duration: 5s;
+    }
+
+    @keyframes rotateL {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .title {
+      position: relative;
+      top: -100px;
+      height: 100%;
+      text-align: center;
+      padding: 40px;
+      font-size: 80px;
+      margin: auto;
+      text-shadow: 5px 5px 5px rgba($color: #525252, $alpha: 0.3);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        height: 8px;
+        background-color: #011921;
+        border-radius: 5px;
+        width: 600px;
+        box-shadow: 5px 5px 5px rgba(82, 82, 82, 0.3);
+      }
     }
   }
 }
 
-.displaying_rules {
+.main-block {
   display: flex;
   flex-direction: row;
   height: 500px;
@@ -291,24 +324,10 @@ body {
     height: 50%;
     align-items: center;
     justify-content: center;
-<<<<<<< Updated upstream
-    border-radius: 50%;
-    border-style: double;
-    border-color: rgba(75,
-        75,
-        75,
-        0.377);
-    ;
-    background-color: rgba(75,
-        75,
-        75,
-        0.377);
-    width: 40px;
-    height: 40px;
     cursor: pointer;
     transition: all .5s ease-in-out;
 
-    &.open .menu-btn_burger {
+    &.open .menu-btn_plus {
       background: transparent;
       box-shadow: none;
       transform: rotate(90deg);
@@ -317,17 +336,19 @@ body {
         transform: rotate(450deg);
       }
     }
-=======
->>>>>>> Stashed changes
 
     .menu-btn {
-      left: 0;
       text-align: initial;
       display: flex;
-      position: absolute;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
+      border-style: double;
+      border-color: rgba(75,
+          75,
+          75,
+          0.377);
+      ;
       background-color: rgba(75,
           75,
           75,
@@ -369,119 +390,83 @@ body {
       }
     }
 
-  }
-
-}
-
-
-.header {
-  display: block;
-  height: 230px;
-}
-
-.logo {
-  position: relative;
-  opacity: 0.8;
-  top: 200px;
-  left: 4.5%;
-  height: 100px;
-  width: 100px;
-  animation-name: rotateL;
-  animation-duration: 5s;
-}
-
-@keyframes rotateL {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.title {
-  position: relative;
-  top: -100px;
-  height: 100%;
-  text-align: center;
-  padding: 40px;
-  font-size: 80px;
-  margin: auto;
-  text-shadow: 5px 5px 5px rgba($color: #525252, $alpha: 0.3);
-}
+    .nav-menu {
+      padding: 0;
+      list-style: none;
+      text-align: center;
+      transition: 0.8s;
+      pointer-events: none;
 
 
-.nav-menu {
-  position: relative;
-  list-style: none;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  transition: 0.8s;
-  pointer-events: none;
+      li {
+        text-align: center;
+        opacity: 0;
+        padding: 4px;
+
+        a {
+          text-decoration: none;
+          color: white;
+          padding: 0 5px 0 5px;
+          border-style: double;
+          border-color: rgba(75,
+              75,
+              75,
+              0.377);
+          border-radius: 20%;
+          background-color: rgba(75,
+              75,
+              75,
+              0.377);
+          cursor: default;
+        }
+      }
 
 
-  li {
-    text-align: left;
-    opacity: 0;
+      &.closed li {
+        animation-name: slideout;
+        animation-duration: .7s;
+        opacity: 0;
+      }
 
-    a {
-      text-decoration: none;
-      color: black;
-      cursor: default;
-    }
-  }
+      @keyframes slideout {
+        from {
+          opacity: 1;
+        }
 
+        to {
+          opacity: 0;
+        }
+      }
 
-  &.closed li {
-    animation-name: slideout;
-    animation-duration: .7s;
-    opacity: 0;
-  }
+      &.open {
 
-  @keyframes slideout {
-    from {
-      opacity: 1;
-    }
+        li {
+          display: block;
+          animation-duration: 1s;
+          animation-name: slidein;
+          opacity: 1;
 
-    to {
-      opacity: 0;
-    }
-  }
+          a {
+            cursor: pointer;
+            pointer-events: initial;
+          }
+        }
+      }
 
+      @keyframes slidein {
+        from {
+          opacity: 0;
+        }
 
-  &.open {
-
-    li {
-      display: block;
-      animation-duration: 1s;
-      animation-name: slidein;
-      opacity: 1;
-
-      a {
-        cursor: pointer;
-        pointer-events: initial;
+        to {
+          opacity: 1;
+        }
       }
     }
 
-
   }
-
-  @keyframes slidein {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-
-  }
-
 
 }
-
 
 #footer {
   height: 50px;
