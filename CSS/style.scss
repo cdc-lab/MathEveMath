@@ -291,6 +291,34 @@ body {
     height: 50%;
     align-items: center;
     justify-content: center;
+<<<<<<< Updated upstream
+    border-radius: 50%;
+    border-style: double;
+    border-color: rgba(75,
+        75,
+        75,
+        0.377);
+    ;
+    background-color: rgba(75,
+        75,
+        75,
+        0.377);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+
+    &.open .menu-btn_burger {
+      background: transparent;
+      box-shadow: none;
+      transform: rotate(90deg);
+
+      &::before {
+        transform: rotate(450deg);
+      }
+    }
+=======
+>>>>>>> Stashed changes
 
     .menu-btn {
       left: 0;
