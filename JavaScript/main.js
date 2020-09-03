@@ -148,7 +148,7 @@ $(document).ready(function () {
     $("#start_btn").toggle();
     $("#operations_diplay_random").fadeToggle();
     $("#validate_btn").fadeToggle(500);
-    $("#level_selector").toggle();
+    $(".dropdown").toggle();
     $("#user_result").fadeToggle();
     operationAddition();
   });
@@ -173,7 +173,7 @@ $(document).ready(function () {
       $("#point_number").html(`Partie terminée avec ${pointCount} points !`);
       $("#restart_btn").fadeToggle();
       $("#validate_btn").toggle();
-      $("#level_selector").fadeToggle();
+      $(".dropdown").toggle();
       $("#user_result").toggle();
       if (
         pointCount >= localStorage.getItem($("#level_selector").val()) &&
@@ -194,10 +194,78 @@ $(document).ready(function () {
     $("#operations_diplay_random").fadeToggle();
     $("#validate_btn").fadeToggle();
     $("#restart_btn").toggle();
-    $("#level_selector").toggle();
+    $(".dropdown").toggle();
     $("#point_number").html("");
-    $("#user_result").fadeToggle();
+    $("#user_result").toggle();
     pointCount = 0;
     operationAddition();
+  });
+
+  /* -------------select ----------------
+  Credit : Aaron Iker
+  https://codepen.io/aaroniker/pen/XxBjKN
+    ------------------------------------*/
+
+  $("select.dropdown").each(function () {
+    var dropdown = $("<div />").addClass("dropdown selectDropdown");
+
+    $(this).wrap(dropdown);
+
+    var label = $("<span />")
+      .text($(this).attr("placeholder"))
+      .insertAfter($(this));
+    var list = $("<ul />");
+
+    $(this)
+      .find("option")
+      .each(function () {
+        list.append($("<li />").append($("<a />").text($(this).text())));
+      });
+
+    list.insertAfter($(this));
+
+    if ($(this).find("option:selected").length) {
+      label.text($(this).find("option:selected").text());
+      list
+        .find("li:contains(" + $(this).find("option:selected").text() + ")")
+        .addClass("active");
+      $(this).parent().addClass("filled");
+    }
+  });
+
+  $(document).on("click touch", ".selectDropdown ul li a", function (e) {
+    e.preventDefault();
+    var dropdown = $(this).parent().parent().parent();
+    var active = $(this).parent().hasClass("active");
+    var label = active
+      ? dropdown.find("select").attr("placeholder")
+      : $(this).text();
+
+    dropdown.find("option").prop("selected", false);
+    dropdown.find("ul li").removeClass("active");
+
+    dropdown.toggleClass("filled", !active);
+    dropdown.children("span").text(label);
+
+    if (!active) {
+      dropdown
+        .find("option:contains(" + $(this).text() + ")")
+        .prop("selected", true);
+      $(this).parent().addClass("active");
+    }
+
+    dropdown.removeClass("open");
+  });
+
+  $(".dropdown > span").on("click touch", function (e) {
+    var self = $(this).parent();
+    self.toggleClass("open");
+  });
+
+  $(document).on("click touch", function (e) {
+    var dropdown = $(".dropdown");
+    if (dropdown !== e.target && !dropdown.has(e.target).length) {
+      dropdown.removeClass("open");
+    }
   });
 });
