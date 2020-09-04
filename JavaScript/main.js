@@ -10,15 +10,31 @@ $(document).ready(function () {
     return Math.floor(Math.random() * multi);
   };
 
+  // -- Affichage des blocks [records, themes]
+
+  const btnRecord = $(".btn-record");
+  const blockRecord = $("#records");
+  const btnThemes = $(".btn-themes");
+  const blockTheme = $("#right");
+  const display = (btn, block) => {
+    btn.on("click touch", function (e) {
+      e.preventDefault;
+      block.toggleClass("open");
+    });
+  };
+
+  display(btnRecord, blockRecord);
+  display(btnThemes, blockTheme);
+
   // -- Theme menu animation --
 
   const btn = $(".menu-btn");
   const option = $(".menu-option");
 
   const colorChanger = (colorSelection) => {
-    $("html").removeClass("blue green pink yellow");
+    $("html").removeClass("blue green pink yellow special");
     $("html").addClass(colorSelection);
-    $("button").removeClass("blue green pink yellow");
+    $("button").removeClass("blue green pink yellow special");
     $("button").addClass(colorSelection);
   };
 
@@ -48,6 +64,11 @@ $(document).ready(function () {
   $("#color_theme_links_yellow").on("click", function (e) {
     e.preventDefault();
     colorChanger("yellow");
+    openClose(btn, option);
+  });
+  $("#color_theme_links_special").on("click", function (e) {
+    e.preventDefault();
+    colorChanger("special");
     openClose(btn, option);
   });
 

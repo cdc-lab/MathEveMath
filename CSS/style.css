@@ -1,4 +1,13 @@
-.accordion {
+#records {
+  display: none;
+  /* Generated styles starts here */
+}
+
+#records.open {
+  display: block;
+}
+
+#records .accordion {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-box;
@@ -11,18 +20,18 @@
   margin-bottom: 5px;
 }
 
-.accordion-select {
+#records .accordion-select {
   cursor: pointer;
   margin: 0;
   opacity: 0;
   z-index: 1;
 }
 
-.accordion-title {
+#records .accordion-title {
   position: relative;
 }
 
-.accordion-title:not(:nth-last-child(2))::after {
+#records .accordion-title:not(:nth-last-child(2))::after {
   border: 1px solid transparent;
   bottom: 0;
   content: "";
@@ -32,7 +41,7 @@
   top: 0;
 }
 
-.accordion-title span {
+#records .accordion-title span {
   bottom: 0px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -42,7 +51,7 @@
   width: 100%;
 }
 
-.accordion-content {
+#records .accordion-content {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   overflow: auto;
@@ -51,13 +60,12 @@
   transition: margin 0.3s ease 0.1s;
 }
 
-.accordion .accordion-select:checked + .accordion-title + .accordion-content {
+#records .accordion .accordion-select:checked + .accordion-title + .accordion-content {
   margin-bottom: 0;
   margin-right: 0;
 }
 
-/* Generated styles starts here */
-.accordion {
+#records .accordion {
   border-color: #dedede;
   border-radius: 8px;
   border-style: solid;
@@ -69,7 +77,7 @@
   height: auto;
 }
 
-.accordion-title, .accordion-select {
+#records .accordion-title, #records .accordion-select {
   background-color: #171C28;
   color: #99A3BA;
   width: 100%;
@@ -77,23 +85,23 @@
   font-size: 15px;
 }
 
-.accordion-select {
+#records .accordion-select {
   margin-bottom: -50px;
   margin-right: -50px;
 }
 
-.accordion-title:not(:nth-last-child(2))::after {
+#records .accordion-title:not(:nth-last-child(2))::after {
   border-bottom-color: #eaeaea;
   border-right-color: transparent;
 }
 
-.accordion .accordion-select:hover + .accordion-title,
-.accordion .accordion-select:checked + .accordion-title {
+#records .accordion .accordion-select:hover + .accordion-title,
+#records .accordion .accordion-select:checked + .accordion-title {
   background-color: #99A3BA;
   color: #000000;
 }
 
-.accordion-title span {
+#records .accordion-title span {
   -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
@@ -102,7 +110,7 @@
   line-height: 50px;
 }
 
-.accordion-content {
+#records .accordion-content {
   background-color: #f7f7f7;
   color: #7f8787;
   height: 80px;
@@ -142,6 +150,37 @@ html.pink {
 html.yellow {
   background: -webkit-gradient(linear, left top, left bottom, from(#fff5db), color-stop(40%, #ffd65e), to(#febf04));
   background: linear-gradient(to bottom, #fff5db 0%, #ffd65e 40%, #febf04 100%);
+}
+
+html.special {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 body {
@@ -193,8 +232,12 @@ body .header .title {
 .main-block #records {
   text-align: center;
   width: 300px;
+  height: 100%;
+  border-radius: 40px;
   margin-left: 20px;
   margin-top: 50px;
+  background-color: #171C28;
+  color: #99A3BA;
 }
 
 .main-block #records .logo {
@@ -233,6 +276,7 @@ body .header .title {
 }
 
 .main-block #center_operation_windows {
+  position: relative;
   width: 100%;
   height: 100%;
   color: #99A3BA;
@@ -244,29 +288,28 @@ body .header .title {
           box-shadow: 0 5px 15px 2px #171C28;
 }
 
-.main-block #center_operation_windows h2 {
+.main-block #center_operation_windows .operation-title {
   position: relative;
   font-size: 3vw;
   border-color: #99A3BA;
   border-radius: 30px;
   width: 15vw;
   margin: 20px auto 20px auto;
-  background-color: #151924;
+  background-color: #0202034f;
+  text-shadow: 0 0 5px #99A3BA;
 }
 
-.main-block #center_operation_windows h2::after {
+.main-block #center_operation_windows .operation-title::after {
   content: "";
   position: absolute;
-  top: -5px;
-  left: -5px;
-  border-width: 5px;
+  top: 0;
+  left: 0;
+  -webkit-box-shadow: inset 0 0 10px #99A3BA, 0 0 20px #99A3BA;
+          box-shadow: inset 0 0 10px #99A3BA, 0 0 20px #99A3BA;
   display: block;
-  border-style: solid;
   width: 100%;
   height: 100%;
   border-radius: 30px;
-  -webkit-filter: blur(5px);
-          filter: blur(5px);
 }
 
 .main-block #center_operation_windows #point_number {
@@ -382,12 +425,82 @@ body .header .title {
   margin: 5px;
 }
 
+.main-block #center_operation_windows .btn-record,
+.main-block #center_operation_windows .btn-themes {
+  text-decoration: none;
+  color: #99A3BA;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #99A3BA;
+  border-radius: 10px;
+  width: 100px;
+  -webkit-box-shadow: 0 0 0 0 #99A3BA;
+          box-shadow: 0 0 0 0 #99A3BA;
+}
+
+.main-block #center_operation_windows .btn-record:hover,
+.main-block #center_operation_windows .btn-themes:hover {
+  -webkit-animation: shine 1s ease infinite;
+          animation: shine 1s ease infinite;
+}
+
+@-webkit-keyframes shine {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 #99A3BA;
+            box-shadow: 0 0 0 0 #99A3BA;
+  }
+  50% {
+    -webkit-box-shadow: 0 0 5px 5px #99A3BA;
+            box-shadow: 0 0 5px 5px #99A3BA;
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 #99A3BA;
+            box-shadow: 0 0 0 0 #99A3BA;
+  }
+}
+
+@keyframes shine {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 #99A3BA;
+            box-shadow: 0 0 0 0 #99A3BA;
+  }
+  50% {
+    -webkit-box-shadow: 0 0 5px 5px #99A3BA;
+            box-shadow: 0 0 5px 5px #99A3BA;
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 #99A3BA;
+            box-shadow: 0 0 0 0 #99A3BA;
+  }
+}
+
+.main-block #center_operation_windows .btn-record {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.main-block #center_operation_windows .btn-themes {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
 #right {
+  display: none;
   margin-top: 50px;
   width: 300px;
+  height: 100%;
+  background-color: #171C28;
+  color: #99A3BA;
+  border-radius: 40px;
   text-align: center;
   position: relative;
   right: 20px;
+}
+
+#right.open {
+  display: block;
 }
 
 #right .date {
@@ -589,6 +702,7 @@ body .header .title {
   --listBorder: none;
   --textFilled: $txtColor;
   margin: auto;
+  padding-top: 20px;
   width: 220px;
   position: relative;
 }
