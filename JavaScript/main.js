@@ -10,7 +10,11 @@ $(document).ready(function () {
     return Math.floor(Math.random() * multi);
   };
 
-  //Theme selection
+  // -- Theme menu animation --
+
+  const btn = $(".menu-btn");
+  const option = $(".menu-option");
+
   const colorChanger = (colorSelection) => {
     $("html").removeClass("blue green pink yellow");
     $("html").addClass(colorSelection);
@@ -18,37 +22,44 @@ $(document).ready(function () {
     $("button").addClass(colorSelection);
   };
 
+  const openClose = (btn, option) => {
+    btn.toggleClass("open");
+    btn.toggleClass("closed");
+    option.toggleClass("open");
+    option.toggleClass("closed");
+  };
+
   $("#color_theme_links_blue").on("click", function (e) {
     e.preventDefault();
     colorChanger("blue");
+    openClose(btn, option);
   });
 
   $("#color_theme_links_green").on("click", function (e) {
     e.preventDefault();
     colorChanger("green");
+    openClose(btn, option);
   });
   $("#color_theme_links_pink").on("click", function (e) {
     e.preventDefault();
     colorChanger("pink");
+    openClose(btn, option);
   });
   $("#color_theme_links_yellow").on("click", function (e) {
     e.preventDefault();
     colorChanger("yellow");
+    openClose(btn, option);
   });
 
-  //Theme menu animation
   let clickCount = 0;
 
   $(".menu-btn").on("click", function () {
     if (clickCount == 0) {
-      $(".menu-btn").addClass("open");
-      $(".nav-menu").addClass("open");
+      $(this).addClass("open");
+      option.addClass("open");
       clickCount = 1;
     } else {
-      $(".menu-btn").toggleClass("open");
-      $(".menu-btn").toggleClass("closed");
-      $(".nav-menu").toggleClass("open");
-      $(".nav-menu").toggleClass("closed");
+      openClose(btn, option);
     }
   });
 
@@ -145,7 +156,7 @@ $(document).ready(function () {
   //New game
   $("#start_btn").on("click", function (e) {
     e.preventDefault();
-    $("#start_btn").toggle();
+    $(this).toggle();
     $("#operations_diplay_random").fadeToggle();
     $("#validate_btn").fadeToggle(500);
     $(".dropdown").toggle();
@@ -172,7 +183,7 @@ $(document).ready(function () {
       $("#operations_diplay_random").toggle();
       $("#point_number").html(`Partie terminée avec ${pointCount} points !`);
       $("#restart_btn").fadeToggle();
-      $("#validate_btn").toggle();
+      $(this).toggle();
       $(".dropdown").toggle();
       $("#user_result").toggle();
       if (
@@ -193,7 +204,7 @@ $(document).ready(function () {
   $("#restart_btn").on("click", function () {
     $("#operations_diplay_random").fadeToggle();
     $("#validate_btn").fadeToggle();
-    $("#restart_btn").toggle();
+    $(this).toggle();
     $(".dropdown").toggle();
     $("#point_number").html("");
     $("#user_result").toggle();
