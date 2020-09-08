@@ -1,0 +1,131 @@
+@import'variables';
+
+#records {
+    display: none;
+
+    &.open {
+        display: block;
+    }
+
+    p {
+        font-size: 30px;
+        text-shadow: 0 0 5px $txtColor;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-shadow: inset 0 0 10px $txtColor, 0 0 20px $txtColor;
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+        }
+    }
+
+    .accordion {
+        box-sizing: border-box;
+        display: flex;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow: hidden;
+        width: 95%;
+        margin: auto;
+        margin-bottom: 5px;
+
+        &-select {
+            cursor: pointer;
+            margin: 0;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        &-title {
+            position: relative;
+
+            &:not(:nth-last-child(2))::after {
+                border: 1px solid transparent;
+                bottom: 0;
+                content: "";
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            span {
+                bottom: 0px;
+                box-sizing: border-box;
+                display: block;
+                position: absolute;
+                white-space: nowrap;
+                width: 100%;
+            }
+        }
+
+        &-content {
+            box-sizing: border-box;
+            overflow: auto;
+            position: relative;
+            transition: margin 0.3s ease 0.1s;
+        }
+
+        .accordion-select:checked+.accordion-title+.accordion-content {
+            margin-bottom: 0;
+            margin-right: 0;
+        }
+    }
+
+    /* Generated styles starts here */
+    .accordion {
+        border-color: #dedede;
+        border-radius: 8px;
+        border-style: solid;
+        border-width: 1px;
+        flex-direction: column;
+        height: auto;
+
+        &-title,
+        &-select {
+            background-color: $bgColor;
+            color: $txtColor;
+            width: 100%;
+            height: 50px;
+            font-size: 15px;
+        }
+
+        &-select {
+            margin-bottom: -50px;
+            margin-right: -50px;
+        }
+
+        &-title:not(:nth-last-child(2))::after {
+            border-bottom-color: rgb(234, 234, 234);
+            border-right-color: transparent;
+        }
+
+        .accordion-select:hover+.accordion-title,
+        .accordion-select:checked+.accordion-title {
+            background-color: $txtColor;
+            color: #000000;
+        }
+
+        &-title span {
+            transform: rotate(0deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+            padding-left: 33px;
+            padding-right: 33px;
+            line-height: 50px;
+        }
+
+        &-content {
+            background-color: #f7f7f7;
+            color: #7f8787;
+            height: 80px;
+            margin-bottom: -80px;
+            margin-right: 0;
+            padding: 30px;
+            width: 100%;
+        }
+    }
+}

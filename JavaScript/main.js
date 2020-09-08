@@ -20,6 +20,7 @@ $(document).ready(function () {
     btn.on("click touch", function (e) {
       e.preventDefault;
       block.toggleClass("open");
+      btn.toggleClass("active");
     });
   };
 
